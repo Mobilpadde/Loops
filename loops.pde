@@ -1,3 +1,12 @@
+/*
+Download and run the sketch to generate your own patterns
+
+To change the color scheme, go to the bottom and modify the randColor() function
+and the background() call in draw()
+
+Click on the canvas to save the image with a random number in the sketch folder.
+*/
+// Size of each tile
 int s = 60;
 int w, h;
 
@@ -7,6 +16,7 @@ int[][] directions = {{0, 1, 2, 3}, {1, 0, 3, 2}, {3, 2, 1, 0}};
 int[][] segments = {{1, 0, 1, 0}, {0, 1, 1, 0}, {0, 0, 1, 1}};
 
 void setup() {
+  // Canvas size, should be divisible by tile size
   size(1500, 1500);
   w = width/s; 
   h = height/s;
@@ -73,6 +83,7 @@ void tracePath() {
 
 void draw() {
   colorMode(RGB, 255, 255, 255);
+  // Background color
   //background(0);
   background(255);
   strokeWeight(s/10);
@@ -120,8 +131,10 @@ void mouseClicked() {
 }
 
 color randColor() {
+  // Uncomment these examples for different color schemes
+
   // Random:
-  //return color(random(256), random(256), random(256));
+  return color(random(256), random(256), random(256));
   
   // Blues & greens:
   //return color(random(100), random(192)+64, random(192)+64);
@@ -133,5 +146,5 @@ color randColor() {
   //return ret;
   
   // Grayscale:
-  return color(random(230));
+  //return color(random(230));
 }
